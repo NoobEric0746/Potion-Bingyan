@@ -7,7 +7,7 @@ func _on_area_2d_body_entered(body: Node2D):
 
 func handle_yao_caught(yao_node:Node2D):
 	#GlobalGameManager.set_now_ingredient(yao_node.get_ingredient_type())
-	GlobalGameManager.add_ingredient(yao_node.get_ingredient_type())
+	GlobalGameManager.add_ingredient(yao_node.get_ingredient_type(),yao_node.smash_progress)
 	yao_node.queue_free()
 
 

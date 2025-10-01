@@ -6,6 +6,8 @@ var durability_queue = Queue.new()
 var now_step = 0
 var potion_watering = false
 var show_arrow = false
+var smashing = false
+@export var base_len = 150
 
 signal queue_changed
 
@@ -47,7 +49,7 @@ func ismoving() -> bool:
 func set_watering(i: bool):
 	potion_watering = i
 
-func add_ingredient(ingredient):
+func add_ingredient(ingredient,smash_progress):
 	ingredient_queue.enqueue(ingredient)
-	durability_queue.enqueue(100)
+	durability_queue.enqueue(base_len*(smash_progress+100)/100)
 	queue_changed.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=11 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ddqcswb0jiril" path="res://sprites/pot.tscn" id="6_r3i6n"]
 [ext_resource type="PackedScene" uid="uid://dlq5n70btwi0t" path="res://sprites/Water.tscn" id="7_o8i82"]
 [ext_resource type="Script" uid="uid://cusqbfa5ajok0" path="res://sprites/water.gd" id="8_1t0ju"]
+[ext_resource type="PackedScene" uid="uid://d1phxuxacnvcm" path="res://sprites/smasher.tscn" id="9_1t0ju"]
+[ext_resource type="Script" uid="uid://drtc31pj4esw" path="res://sprites/smasher.gd" id="10_y6xgs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r3i6n")
@@ -54,6 +56,13 @@ offset_top = 412.0
 offset_right = 483.0
 offset_bottom = 624.0
 script = ExtResource("8_1t0ju")
+
+[node name="Smasher" parent="." instance=ExtResource("9_1t0ju")]
+offset_left = 673.0
+offset_top = 542.0
+offset_right = 794.0
+offset_bottom = 633.0
+script = ExtResource("10_y6xgs")
 
 [connection signal="button_down" from="Water" to="Water" method="_on_button_down"]
 [connection signal="button_up" from="Water" to="Water" method="_on_button_up"]

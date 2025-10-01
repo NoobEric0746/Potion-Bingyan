@@ -4,6 +4,7 @@ var is_being_dragged = false
 var drag_offset = Vector2.ZERO
 @export var max_speed: float = 500.0
 var ingredient_type = 0
+var smash_progress=0;
 
 
 @export var texture_0: Texture2D
@@ -16,6 +17,7 @@ func _ready():
 	is_being_dragged = true
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	freeze = true
+	z_index = 100
 
 func _input_event(viewport,event,shape_idx):
 	if event is InputEventMouseButton:
@@ -60,3 +62,11 @@ func update_texture():
 		get_node("Sprite2D").texture = texture_3
 	else:
 		get_node("Sprite2D").texture = texture_0
+
+
+func _on_mouse_entered() -> void:
+	get_node("SmashBar").show()
+
+
+func _on_mouse_exited() -> void:
+	get_node("SmashBar").hide()
