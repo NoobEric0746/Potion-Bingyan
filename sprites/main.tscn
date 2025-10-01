@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=9 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://y8gcs44h5f6w" path="res://sprites/walls.tscn" id="5_ey6f8"]
 [ext_resource type="PackedScene" uid="uid://cvmmqbjf34oh3" path="res://sprites/potion_map.tscn" id="6_k56x5"]
 [ext_resource type="PackedScene" uid="uid://ddqcswb0jiril" path="res://sprites/pot.tscn" id="6_r3i6n"]
+[ext_resource type="PackedScene" uid="uid://dlq5n70btwi0t" path="res://sprites/Water.tscn" id="7_o8i82"]
+[ext_resource type="Script" uid="uid://cusqbfa5ajok0" path="res://sprites/water.gd" id="8_1t0ju"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r3i6n")
@@ -25,21 +27,35 @@ scale = Vector2(1.4463396, 1.4799998)
 
 [node name="Walls" parent="." instance=ExtResource("5_ey6f8")]
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 256.0
+offset_top = 53.0
+offset_right = 883.0
+offset_bottom = 440.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(627, 387)
+render_target_update_mode = 4
+
+[node name="PotionMap" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_k56x5")]
+position = Vector2(-309, -176)
+scale = Vector2(0.5, 0.5)
+
 [node name="Pot" parent="." instance=ExtResource("6_r3i6n")]
 offset_left = 489.0
 offset_top = 462.0
 offset_right = 647.0
 offset_bottom = 629.0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = 256.0
-offset_top = 53.0
-offset_right = 876.0
-offset_bottom = 439.0
+[node name="Water" parent="." instance=ExtResource("7_o8i82")]
+offset_left = 361.0
+offset_top = 412.0
+offset_right = 483.0
+offset_bottom = 624.0
+script = ExtResource("8_1t0ju")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-size = Vector2i(627, 387)
-
-[node name="PotionMap" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_k56x5")]
-position = Vector2(24, 20)
-scale = Vector2(0.5, 0.5)
+[connection signal="button_down" from="Water" to="Water" method="_on_button_down"]
+[connection signal="button_up" from="Water" to="Water" method="_on_button_up"]
+[connection signal="mouse_entered" from="Water" to="Water" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Water" to="Water" method="_on_mouse_exited"]

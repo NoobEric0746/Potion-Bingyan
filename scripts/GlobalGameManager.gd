@@ -4,6 +4,8 @@ var potion_moving = false
 var ingredient_queue = Queue.new()
 var durability_queue = Queue.new()
 var now_step = 0
+var potion_watering = false
+var show_arrow = false
 
 signal queue_changed
 
@@ -41,6 +43,9 @@ func set_moving(i: bool):
 	potion_moving = i
 func ismoving() -> bool:
 	return potion_moving
+
+func set_watering(i: bool):
+	potion_watering = i
 
 func add_ingredient(ingredient):
 	ingredient_queue.enqueue(ingredient)

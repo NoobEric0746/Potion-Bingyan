@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlq5n70btwi0t"]
+
+[ext_resource type="Texture2D" uid="uid://bmdt4uni3ms72" path="res://art/water.png" id="1_5qmdp"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_5qmdp")
