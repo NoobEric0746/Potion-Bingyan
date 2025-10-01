@@ -11,10 +11,13 @@ script = ExtResource("1_j4lu0")
 dot = ExtResource("2_8ltbf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 577.0
-offset_bottom = 355.0
+offset_right = 1221.5
+offset_bottom = 740.5
 scale = Vector2(2, 2)
 texture = ExtResource("1_53hhi")
 
 [node name="Potion" parent="." instance=ExtResource("2_j4lu0")]
+position = Vector2(1257, 747)
 script = ExtResource("3_8ltbf")
+
+[node name="Camera2D" type="Camera2D" parent="Potion"]

@@ -31,6 +31,15 @@ offset_top = 462.0
 offset_right = 647.0
 offset_bottom = 629.0
 
-[node name="PotionMap" parent="." instance=ExtResource("6_k56x5")]
-position = Vector2(268, 69)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 256.0
+offset_top = 53.0
+offset_right = 876.0
+offset_bottom = 439.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(627, 387)
+
+[node name="PotionMap" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_k56x5")]
+position = Vector2(24, 20)
 scale = Vector2(0.5, 0.5)
