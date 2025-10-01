@@ -36,3 +36,13 @@ func clear():
 # 打印队列内容（用于调试）
 func print_queue():
 	print("Queue: ", _items)
+
+func get_queue():
+	return _items
+func set_queue(i):
+	_items=i
+
+func duplicate() -> Queue:
+	var new_queue = Queue.new()
+	new_queue.set_queue(JSON.parse_string(JSON.stringify(_items))) # 利用JSON转换实现深拷贝
+	return new_queue

@@ -4,7 +4,6 @@ extends TextureButton
 @export var ingredient_type: int
 
 func _on_button_down():
-	print("1")
 	if sprite_to_spawn != null:
 		var new_instance = sprite_to_spawn.instantiate()
 		get_tree().current_scene.add_child(new_instance)

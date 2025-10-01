@@ -13,9 +13,7 @@ func handle_yao_caught(yao_node:Node2D):
 
 func _on_button_down() -> void:
 	GlobalGameManager.set_moving(true)
-	print("moving")
 
 
 func _on_button_up() -> void:
 	GlobalGameManager.set_moving(false)
-	print("stop")
