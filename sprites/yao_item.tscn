@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://bieaumgqbd8md"]
+
+[ext_resource type="Script" uid="uid://bqswm2vg1jahw" path="res://scripts/yao_item.gd" id="1_kbmj8"]
+[ext_resource type="Texture2D" uid="uid://cyo28yy84g3wk" path="res://art/t0_item.png" id="2_72gqe"]
+[ext_resource type="Texture2D" uid="uid://5v837mwmlpq8" path="res://art/t1_item.png" id="2_h7dqh"]
+[ext_resource type="Texture2D" uid="uid://bldkklco5l4x6" path="res://art/t2_item.png" id="4_l6vlo"]
+[ext_resource type="Texture2D" uid="uid://c2mdr6k6djl7r" path="res://art/t3_item.png" id="5_4bb15"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_44d0g"]
+bounce = 0.12
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qre8k"]
+radius = 17.0
+height = 48.0
+
+[node name="yao_item" type="RigidBody2D" groups=["yao_item"]]
+physics_material_override = SubResource("PhysicsMaterial_44d0g")
+script = ExtResource("1_kbmj8")
+max_speed = 1000.0
+texture_0 = ExtResource("2_72gqe")
+texture_1 = ExtResource("2_h7dqh")
+texture_2 = ExtResource("4_l6vlo")
+texture_3 = ExtResource("5_4bb15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qre8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_h7dqh")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d137bko386a10"]
+
+[ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
+[ext_resource type="PackedScene" uid="uid://4w5wds7p3xpu" path="res://sprites/backpack.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://y8gcs44h5f6w" path="res://sprites/walls.tscn" id="5_ey6f8"]
+[ext_resource type="PackedScene" uid="uid://cvmmqbjf34oh3" path="res://sprites/potion_map.tscn" id="6_k56x5"]
+[ext_resource type="PackedScene" uid="uid://ddqcswb0jiril" path="res://sprites/pot.tscn" id="6_r3i6n"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r3i6n")
+
+[node name="TextureRect" parent="." instance=ExtResource("1_0xm2m")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1146.0
+offset_bottom = 645.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Backpack" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(921, 36)
+scale = Vector2(1.4463396, 1.4799998)
+
+[node name="Walls" parent="." instance=ExtResource("5_ey6f8")]
+
+[node name="Pot" parent="." instance=ExtResource("6_r3i6n")]
+offset_left = 489.0
+offset_top = 462.0
+offset_right = 647.0
+offset_bottom = 629.0
+
+[node name="PotionMap" parent="." instance=ExtResource("6_k56x5")]
+position = Vector2(268, 69)
+scale = Vector2(0.5, 0.5)
