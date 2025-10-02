@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=12 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
 [ext_resource type="PackedScene" uid="uid://4w5wds7p3xpu" path="res://sprites/backpack.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c6gvoaxuyyjw3" path="res://sprites/info_tab.tscn" id="4_au7dq"]
 [ext_resource type="PackedScene" uid="uid://y8gcs44h5f6w" path="res://sprites/walls.tscn" id="5_ey6f8"]
 [ext_resource type="PackedScene" uid="uid://cvmmqbjf34oh3" path="res://sprites/potion_map.tscn" id="6_k56x5"]
 [ext_resource type="PackedScene" uid="uid://ddqcswb0jiril" path="res://sprites/pot.tscn" id="6_r3i6n"]
 [ext_resource type="PackedScene" uid="uid://dlq5n70btwi0t" path="res://sprites/Water.tscn" id="7_o8i82"]
 [ext_resource type="Script" uid="uid://cusqbfa5ajok0" path="res://sprites/water.gd" id="8_1t0ju"]
 [ext_resource type="PackedScene" uid="uid://d1phxuxacnvcm" path="res://sprites/smasher.tscn" id="9_1t0ju"]
-[ext_resource type="Script" uid="uid://drtc31pj4esw" path="res://sprites/smasher.gd" id="10_y6xgs"]
+[ext_resource type="PackedScene" uid="uid://bva6m6skulph7" path="res://sprites/fire.tscn" id="11_44oxp"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r3i6n")
@@ -26,6 +27,9 @@ grow_vertical = 1
 [node name="Backpack" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(921, 36)
 scale = Vector2(1.4463396, 1.4799998)
+
+[node name="InfoTab" parent="." instance=ExtResource("4_au7dq")]
+position = Vector2(127, 251)
 
 [node name="Walls" parent="." instance=ExtResource("5_ey6f8")]
 
@@ -62,7 +66,13 @@ offset_left = 673.0
 offset_top = 542.0
 offset_right = 794.0
 offset_bottom = 633.0
-script = ExtResource("10_y6xgs")
+
+[node name="Fire" parent="." instance=ExtResource("11_44oxp")]
+offset_left = 323.0
+offset_top = 549.0
+offset_right = 483.0
+offset_bottom = 617.0
+scale = Vector2(1.4626023, 1.3182818)
 
 [connection signal="button_down" from="Water" to="Water" method="_on_button_down"]
 [connection signal="button_up" from="Water" to="Water" method="_on_button_up"]

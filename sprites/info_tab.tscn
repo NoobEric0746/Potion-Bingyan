@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6gvoaxuyyjw3"]
+
+[ext_resource type="Texture2D" uid="uid://ccjfab85mebd" path="res://art/backpack.png" id="1_jc0fd"]
+[ext_resource type="Script" uid="uid://uyq0s0drsadh" path="res://sprites/info_tab.gd" id="1_w2ity"]
+[ext_resource type="Texture2D" uid="uid://bpo6y3acac64q" path="res://art/confirm.png" id="3_txt5w"]
+
+[node name="InfoTab" type="Node2D"]
+script = ExtResource("1_w2ity")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_jc0fd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -197.0
+offset_right = 56.0
+offset_bottom = -2.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "治疗3毒性4药水"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -65.0
+offset_top = 134.0
+offset_right = 62.0
+offset_bottom = 202.0
+texture_normal = ExtResource("3_txt5w")

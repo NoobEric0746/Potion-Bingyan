@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bva6m6skulph7"]
+
+[ext_resource type="Texture2D" uid="uid://bfd7e64gqjmkj" path="res://art/fire.png" id="1_s0lgs"]
+[ext_resource type="Script" uid="uid://cf2y5vat4shwf" path="res://fire.gd" id="2_1jeoy"]
+
+[node name="Fire" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_s0lgs")
+script = ExtResource("2_1jeoy")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

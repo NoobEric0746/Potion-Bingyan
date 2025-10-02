@@ -30,13 +30,17 @@ offset = Vector2(-7.5, 9.55)
 [node name="BoneArea" parent="." instance=ExtResource("9_l6dbk")]
 position = Vector2(270, -2)
 
-[node name="AimPotion_A" parent="." groups=["aim_potion"] instance=ExtResource("6_gptey")]
-position = Vector2(135, 8)
-potion_type = "A"
+[node name="AimPotion_A" parent="." instance=ExtResource("6_gptey")]
+position = Vector2(-132, 175)
+potion_type = "治疗"
 
-[node name="AimPotion_B" parent="." groups=["aim_potion"] instance=ExtResource("6_gptey")]
+[node name="AimPotion_B" parent="." instance=ExtResource("6_gptey")]
 position = Vector2(377, -1)
-potion_type = "B"
+potion_type = "中毒"
+
+[node name="AimPotion_C" parent="." instance=ExtResource("6_gptey")]
+position = Vector2(-206, -161)
+potion_type = "爆炸"
 
 [node name="Potion" parent="." instance=ExtResource("2_j4lu0")]
 position = Vector2(-7, 3)

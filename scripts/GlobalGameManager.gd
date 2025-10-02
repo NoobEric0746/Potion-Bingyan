@@ -10,9 +10,19 @@ var smashing = false
 var drying = false
 var new_type = "None"
 var new_level = 0
+var potion_name = ""
+var potion_data = {}
+
 @export var base_len = 150
 
 signal queue_changed
+
+func _ready():
+	ingredient_queue.clear()
+	durability_queue.clear()
+	potion_data = {}
+	potion_name = ""
+	new_level = 0
 
 func get_now_ingredient():
 	if ingredient_queue.is_empty():
@@ -31,6 +41,15 @@ func use_ingredient():
 		durability_queue.dequeue()
 		ingredient_queue.dequeue()
 
+func add_effect():
+	if new_level == 0:
+		return
+	if not new_type in potion_data:
+		potion_data[new_type]=new_level
+		potion_name += new_type
+		potion_name += str(new_level)
+		
+
 func set_now_ingredient(ingredient):
 	now_ingredient = ingredient
 
@@ -47,7 +66,7 @@ func get_direction_by_ingredient(ingredient):
 func set_moving(i: bool):
 	potion_moving = i
 func ismoving() -> bool:
-	return potion_moving
+	return potion_moving and (not ingredient_queue.is_empty())
 
 func set_watering(i: bool):
 	potion_watering = i
@@ -56,3 +75,7 @@ func add_ingredient(ingredient,smash_progress):
 	ingredient_queue.enqueue(ingredient)
 	durability_queue.enqueue(base_len*(smash_progress+100)/100)
 	queue_changed.emit()
+
+func die():
+	_ready()
+	get_tree().reload_current_scene()

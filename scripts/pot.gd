@@ -1,5 +1,7 @@
 extends TextureButton
 
+func _ready():
+	mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("yao_item"):

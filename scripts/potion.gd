@@ -9,10 +9,12 @@ var water = 100
 func _ready():
 	set_process(true)
 	start_pos = global_position
+	z_index = 100
 
 
 func _process(delta: float) -> void:
-	get_new_potion();
+	get_new_potion()
+	process_drying()
 	get_node("Label").text=str(water)
 	
 	if GlobalGameManager.ismoving():
@@ -20,12 +22,7 @@ func _process(delta: float) -> void:
 		position += GlobalGameManager.get_direction_by_ingredient(GlobalGameManager.get_now_ingredient())
 		GlobalGameManager.use_ingredient();
 		
-		if GlobalGameManager.drying:
-			water -= 1
-			if water<=0:
-				print("failed")
-		else:
-			water=100
+		
 	if GlobalGameManager.potion_watering:
 		var direction = start_pos - global_position
 		if direction.length() < 2.0:
@@ -59,3 +56,14 @@ func get_new_potion():
 	else:
 		label.show()
 	label.text = GlobalGameManager.new_type+str(GlobalGameManager.new_level)
+
+func process_drying():
+	if GlobalGameManager.potion_watering or GlobalGameManager.ismoving():
+		if GlobalGameManager.drying:
+			water -= 1
+			if water<=0:
+				print("failed")
+				GlobalGameManager.die()
+		else:
+			water=100
+		
