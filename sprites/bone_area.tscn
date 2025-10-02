@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbv6aklwgj262"]
+
+[ext_resource type="Texture2D" uid="uid://bswtj2sixkfta" path="res://art/bone.png" id="1_0fukq"]
+[ext_resource type="Script" uid="uid://bmuxvjj3ucm0s" path="res://sprites/bone_area.gd" id="1_174ti"]
+
+[node name="BoneArea" type="Node2D"]
+script = ExtResource("1_174ti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0fukq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(-42, -88, -32, -32, -50, 56, -35, 99, 11, 99, 21, 46, 53, -27, 49, -70, 22, -100, -21, -104)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

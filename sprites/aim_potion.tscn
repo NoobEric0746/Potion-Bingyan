@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwvwgs2tthm1"]
+
+[ext_resource type="Script" uid="uid://b47ouk2ncuct1" path="res://aim_potion.gd" id="1_w51by"]
+[ext_resource type="Texture2D" uid="uid://0bydmd535nd2" path="res://art/center.png" id="2_h8jed"]
+
+[node name="AimPotion" type="Node2D" groups=["aim_potion"]]
+script = ExtResource("1_w51by")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h8jed")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.4392157)
+text = "A"
+horizontal_alignment = 1

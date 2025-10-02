@@ -12,7 +12,8 @@ func handle_yao_caught(yao_node:Node2D):
 
 
 func _on_button_down() -> void:
-	GlobalGameManager.set_moving(true)
+	if not GlobalGameManager.ingredient_queue.is_empty():
+		GlobalGameManager.set_moving(true)
 
 
 func _on_button_up() -> void:

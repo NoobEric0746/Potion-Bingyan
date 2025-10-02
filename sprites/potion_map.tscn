@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvmmqbjf34oh3"]
+[gd_scene load_steps=11 format=3 uid="uid://cvmmqbjf34oh3"]
 
 [ext_resource type="Texture2D" uid="uid://o430qjgc2qlr" path="res://art/map.png" id="1_53hhi"]
 [ext_resource type="Script" uid="uid://dvk1x0jhfgqtm" path="res://sprites/potion_map.gd" id="1_j4lu0"]
 [ext_resource type="PackedScene" uid="uid://c4phys4gykhc4" path="res://sprites/dot.tscn" id="2_8ltbf"]
 [ext_resource type="PackedScene" uid="uid://bwnjxwn1xmd1u" path="res://sprites/potion.tscn" id="2_j4lu0"]
 [ext_resource type="Script" uid="uid://dp28pn5gkb3sv" path="res://scripts/potion.gd" id="3_8ltbf"]
+[ext_resource type="PackedScene" uid="uid://cvwvwgs2tthm1" path="res://sprites/aim_potion.tscn" id="6_gptey"]
 [ext_resource type="Texture2D" uid="uid://d53penhamngk" path="res://art/arrow.png" id="6_wmpke"]
 [ext_resource type="Script" uid="uid://dq7cp1hbnb20p" path="res://sprites/arrow.gd" id="7_l6pwf"]
 [ext_resource type="Texture2D" uid="uid://0bydmd535nd2" path="res://art/center.png" id="8_l6pwf"]
+[ext_resource type="PackedScene" uid="uid://cbv6aklwgj262" path="res://sprites/bone_area.tscn" id="9_l6dbk"]
 
 [node name="PotionMap" type="Node2D"]
 script = ExtResource("1_j4lu0")
@@ -25,9 +27,23 @@ texture = ExtResource("1_53hhi")
 texture = ExtResource("8_l6pwf")
 offset = Vector2(-7.5, 9.55)
 
+[node name="BoneArea" parent="." instance=ExtResource("9_l6dbk")]
+position = Vector2(270, -2)
+
+[node name="AimPotion_A" parent="." groups=["aim_potion"] instance=ExtResource("6_gptey")]
+position = Vector2(135, 8)
+potion_type = "A"
+
+[node name="AimPotion_B" parent="." groups=["aim_potion"] instance=ExtResource("6_gptey")]
+position = Vector2(377, -1)
+potion_type = "B"
+
 [node name="Potion" parent="." instance=ExtResource("2_j4lu0")]
 position = Vector2(-7, 3)
 script = ExtResource("3_8ltbf")
+dis1 = 25
+dis2 = 15
+dis3 = 5
 
 [node name="Camera2D" type="Camera2D" parent="Potion"]
 

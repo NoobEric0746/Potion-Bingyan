@@ -6,7 +6,7 @@
 radius = 25.019993
 
 [node name="Potion" type="Area2D" groups=["potion"]]
-position = Vector2(597, 258)
+position = Vector2(613, 264)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +16,19 @@ texture = ExtResource("1_bcips")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_174ht")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -14.0
+offset_top = -61.0
+offset_right = 26.0
+offset_bottom = -38.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "test"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -5.0
+offset_right = 19.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A3"

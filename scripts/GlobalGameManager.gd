@@ -7,6 +7,9 @@ var now_step = 0
 var potion_watering = false
 var show_arrow = false
 var smashing = false
+var drying = false
+var new_type = "None"
+var new_level = 0
 @export var base_len = 150
 
 signal queue_changed
