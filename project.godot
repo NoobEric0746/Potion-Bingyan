@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalGameManager="*res://scripts/GlobalGameManager.gd"
 GlobalQueue="*res://scripts/queue.gd"
+GlobalSellManager="*res://global_sell_manager.gd"
 
 [dotnet]
 

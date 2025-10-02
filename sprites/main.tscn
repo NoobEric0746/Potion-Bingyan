@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=16 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bhet23fw0mnyi" path="res://sprites/left_button.gd" id="4_8cy0t"]
 [ext_resource type="PackedScene" uid="uid://c6gvoaxuyyjw3" path="res://sprites/info_tab.tscn" id="4_au7dq"]
 [ext_resource type="PackedScene" uid="uid://y8gcs44h5f6w" path="res://sprites/walls.tscn" id="5_ey6f8"]
+[ext_resource type="Texture2D" uid="uid://be1x14p77edrr" path="res://art/right.png" id="5_wwolt"]
+[ext_resource type="Script" uid="uid://deyxo4ep88tde" path="res://sprites/craft_2_sel.gd" id="6_b1wkd"]
 [ext_resource type="PackedScene" uid="uid://cvmmqbjf34oh3" path="res://sprites/potion_map.tscn" id="6_k56x5"]
 [ext_resource type="PackedScene" uid="uid://ddqcswb0jiril" path="res://sprites/pot.tscn" id="6_r3i6n"]
 [ext_resource type="PackedScene" uid="uid://dlq5n70btwi0t" path="res://sprites/Water.tscn" id="7_o8i82"]
@@ -33,6 +35,14 @@ offset_right = 190.0
 offset_bottom = 605.0
 texture_normal = ExtResource("3_34bsu")
 script = ExtResource("4_8cy0t")
+
+[node name="RightButton" type="TextureButton" parent="."]
+offset_left = 962.0
+offset_top = 487.0
+offset_right = 1095.0
+offset_bottom = 610.0
+texture_normal = ExtResource("5_wwolt")
+script = ExtResource("6_b1wkd")
 
 [node name="Backpack" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(921, 36)
@@ -85,6 +95,7 @@ offset_right = 794.0
 offset_bottom = 633.0
 
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
+[connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]
 [connection signal="button_down" from="Water" to="Water" method="_on_button_down"]
 [connection signal="button_up" from="Water" to="Water" method="_on_button_up"]
 [connection signal="mouse_entered" from="Water" to="Water" method="_on_mouse_entered"]

@@ -9,7 +9,14 @@ var water = 100
 func _ready():
 	set_process(true)
 	start_pos = global_position
+	if GlobalGameManager.potion_pos == Vector2.ZERO:
+		GlobalGameManager.potion_pos =global_position
+	else:
+		global_position = GlobalGameManager.potion_pos
+		water = GlobalGameManager.potion_water
 	z_index = 100
+	GlobalGameManager.kill_items.connect(Callable(self,"_on_scene_switch"))
+	GlobalGameManager.to_craft.connect(Callable(self,"_on_scene_back"))
 
 
 func _process(delta: float) -> void:
@@ -81,3 +88,9 @@ func process_vortex():
 		global_position += Vector2(200,0)
 		get_parent().pos += Vector2(200,0)*2
 	
+func _on_scene_switch():
+	GlobalGameManager.potion_pos=global_position
+	GlobalGameManager.potion_water=water
+func _on_scene_back():
+	global_position = GlobalGameManager.potion_pos
+	print("back")

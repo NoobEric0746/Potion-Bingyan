@@ -14,7 +14,10 @@ var new_type = "None"
 var new_level = 0
 var potion_name = ""
 var potion_data = {}
-var storage_data = {}
+var storage_data = {1:5,2:5,3:5}
+var potion_pos = Vector2.ZERO
+var potion_water = 100
+var money = 0
 
 var firing = false
 var vortex = Vector2.ZERO
@@ -25,6 +28,7 @@ signal queue_changed
 signal start_draw_tmp
 signal stop_draw_tmp
 signal kill_items
+signal to_craft
 
 func _ready():
 	ingredient_queue.clear()
@@ -32,9 +36,9 @@ func _ready():
 	potion_data = {}
 	potion_name = ""
 	new_level = 0
-	storage_data[1]=5
-	storage_data[2]=5
-	storage_data[3]=5
+	#storage_data[1]=5
+	#storage_data[2]=5
+	#storage_data[3]=5
 
 func show_tmp(i:bool):
 	if i:
@@ -75,9 +79,9 @@ func get_direction_by_ingredient(ingredient):
 	if ingredient == 1 :
 		return Vector2(1,0)
 	elif ingredient == 2:
-		return Vector2(-0.3,1)
+		return Vector2(-0.5,1)
 	elif ingredient == 3:
-		return Vector2(-0.3,-1)
+		return Vector2(-0.5,-1)
 	else:
 		return Vector2.ZERO
 		
@@ -96,4 +100,8 @@ func add_ingredient(ingredient,smash_progress):
 
 func die():
 	_ready()
+	#get_node("/root/Craft").get_tree().reload_current_scene()
 	get_tree().reload_current_scene()
+
+func clear_potion():
+	die()
