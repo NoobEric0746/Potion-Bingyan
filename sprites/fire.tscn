@@ -9,4 +9,11 @@ offset_bottom = 40.0
 texture_normal = ExtResource("1_s0lgs")
 script = ExtResource("2_1jeoy")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(8, 55, 149, 59, 18, 9)
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

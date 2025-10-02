@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
 	get_node("Label").text=str(water)
 	get_node("WaterBar").value = water
 	
+	#print(GlobalGameManager.firing)
+	if GlobalGameManager.firing and GlobalGameManager.vortex != Vector2.ZERO:
+		process_vortex()
+	
 	if GlobalGameManager.ismoving():
 		#print(GlobalGameManager.get_now_ingredient())
 		position += GlobalGameManager.get_direction_by_ingredient(GlobalGameManager.get_now_ingredient())
@@ -68,3 +72,12 @@ func process_drying():
 		else:
 			water=100
 		
+func process_vortex():
+	var dis = global_position - GlobalGameManager.vortex
+	var step = (dis.rotated(deg_to_rad(100))).normalized()
+	global_position += step
+	get_parent().pos += step*2
+	if dis.length()<3:
+		global_position += Vector2(200,0)
+		get_parent().pos += Vector2(200,0)*2
+	

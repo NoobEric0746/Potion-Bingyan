@@ -15,6 +15,9 @@ var new_level = 0
 var potion_name = ""
 var potion_data = {}
 
+var firing = false
+var vortex = Vector2.ZERO
+
 @export var base_len = 150
 
 signal queue_changed

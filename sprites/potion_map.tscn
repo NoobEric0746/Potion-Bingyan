@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvmmqbjf34oh3"]
+[gd_scene load_steps=12 format=3 uid="uid://cvmmqbjf34oh3"]
 
 [ext_resource type="Texture2D" uid="uid://o430qjgc2qlr" path="res://art/map.png" id="1_53hhi"]
 [ext_resource type="Script" uid="uid://dvk1x0jhfgqtm" path="res://sprites/potion_map.gd" id="1_j4lu0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwvwgs2tthm1" path="res://sprites/aim_potion.tscn" id="6_gptey"]
 [ext_resource type="Texture2D" uid="uid://d53penhamngk" path="res://art/arrow.png" id="6_wmpke"]
 [ext_resource type="Script" uid="uid://dq7cp1hbnb20p" path="res://sprites/arrow.gd" id="7_l6pwf"]
+[ext_resource type="PackedScene" uid="uid://bcnsr0loarxgm" path="res://sprites/vortex.tscn" id="7_ykoox"]
 [ext_resource type="Texture2D" uid="uid://0bydmd535nd2" path="res://art/center.png" id="8_l6pwf"]
 [ext_resource type="PackedScene" uid="uid://cbv6aklwgj262" path="res://sprites/bone_area.tscn" id="9_l6dbk"]
 
@@ -41,6 +42,9 @@ potion_type = "中毒"
 [node name="AimPotion_C" parent="." instance=ExtResource("6_gptey")]
 position = Vector2(-206, -161)
 potion_type = "爆炸"
+
+[node name="Vortex" parent="." instance=ExtResource("7_ykoox")]
+position = Vector2(129, 36)
 
 [node name="Potion" parent="." instance=ExtResource("2_j4lu0")]
 position = Vector2(-7, 3)
