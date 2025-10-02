@@ -5,6 +5,8 @@ extends TextureButton
 
 func _on_button_down():
 	if sprite_to_spawn != null:
+		if GlobalGameManager.storage_data[ingredient_type] == 0:
+			return
 		var new_instance = sprite_to_spawn.instantiate()
 		get_tree().current_scene.add_child(new_instance)
 		new_instance.global_position = get_global_mouse_position()
@@ -12,6 +14,7 @@ func _on_button_down():
 		new_instance.update_texture()
 		_on_mouse_exited()
 		new_instance._on_mouse_entered()
+		GlobalGameManager.storage_data[ingredient_type] -= 1
 
 
 func _on_mouse_entered() -> void:
@@ -24,3 +27,6 @@ func _on_mouse_exited() -> void:
 	GlobalGameManager.tmp_ingredient = 0
 	GlobalGameManager.tmp_durability = 0
 	GlobalGameManager.show_tmp(false)
+
+func _process(delta: float) -> void:
+	get_node("Label").text = str(GlobalGameManager.storage_data[ingredient_type])

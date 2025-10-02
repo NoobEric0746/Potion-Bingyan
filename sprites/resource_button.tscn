@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv1y0kgmrqt2w"]
+[gd_scene load_steps=4 format=3 uid="uid://dv1y0kgmrqt2w"]
 
 [ext_resource type="Script" uid="uid://c1820f3jcp43a" path="res://scripts/resource_button.gd" id="1_ntuxg"]
+[ext_resource type="Texture2D" uid="uid://d13hjbgbgfeb1" path="res://art/t1_button.png" id="1_ypav8"]
 [ext_resource type="PackedScene" uid="uid://bieaumgqbd8md" path="res://sprites/yao_item.tscn" id="2_3mdbq"]
 
 [node name="ResourceButton" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
+texture_normal = ExtResource("1_ypav8")
 script = ExtResource("1_ntuxg")
 sprite_to_spawn = ExtResource("2_3mdbq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 32.0
+offset_right = 95.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

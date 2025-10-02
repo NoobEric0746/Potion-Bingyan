@@ -14,6 +14,7 @@ var new_type = "None"
 var new_level = 0
 var potion_name = ""
 var potion_data = {}
+var storage_data = {}
 
 var firing = false
 var vortex = Vector2.ZERO
@@ -30,6 +31,9 @@ func _ready():
 	potion_data = {}
 	potion_name = ""
 	new_level = 0
+	storage_data[1]=5
+	storage_data[2]=5
+	storage_data[3]=5
 
 func show_tmp(i:bool):
 	if i:

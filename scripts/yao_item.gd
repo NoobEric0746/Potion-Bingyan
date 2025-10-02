@@ -82,4 +82,8 @@ func _on_mouse_exited() -> void:
 func _process(delta: float) -> void:
 	if mouse_in:
 		GlobalGameManager.tmp_durability = GlobalGameManager.base_len*(smash_progress+100)/100
-		
+	var viewport_size = get_viewport().get_visible_rect().size
+	var right_boundary = viewport_size.x
+	if global_position.x > right_boundary+10:
+		GlobalGameManager.storage_data[ingredient_type] += 1
+		queue_free()
