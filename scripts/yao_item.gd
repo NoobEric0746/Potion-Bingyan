@@ -18,6 +18,7 @@ func _ready():
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	freeze = true
 	z_index = 100
+	GlobalGameManager.kill_items.connect(Callable(self,"_on_kill_items"))
 
 func _input_event(viewport,event,shape_idx):
 	if event is InputEventMouseButton:
@@ -46,6 +47,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D):
 	if current_velocity.length() > max_speed:
 		# 将速度向量缩放到最大速度
 		state.linear_velocity = current_velocity.normalized() * max_speed
+
+func _on_kill_items():
+	GlobalGameManager.storage_data[ingredient_type] += 1
+	queue_free()
 
 func set_ingredient_type(type):
 	ingredient_type=type

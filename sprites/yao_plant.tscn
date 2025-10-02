@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://6uygypgy6b12"]
+
+[ext_resource type="Script" uid="uid://dmc4pl7m4ikj4" path="res://yao_plant.gd" id="1_vsd0i"]
+[ext_resource type="Script" uid="uid://duit6vu0dmnus" path="res://sprites/add5label.gd" id="2_7kj10"]
+
+[node name="yao_plant" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vsd0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+5"
+script = ExtResource("2_7kj10")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

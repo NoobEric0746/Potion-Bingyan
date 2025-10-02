@@ -24,6 +24,7 @@ var vortex = Vector2.ZERO
 signal queue_changed
 signal start_draw_tmp
 signal stop_draw_tmp
+signal kill_items
 
 func _ready():
 	ingredient_queue.clear()

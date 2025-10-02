@@ -10,3 +10,4 @@ func _process(delta):
 	#print(GlobalGameManager.get_now_ingredient())
 func _ready():
 	set_process(true)
+	get_node("SubViewportContainer/SubViewport/PotionMap").draw_dots()
