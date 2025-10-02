@@ -5,7 +5,7 @@ var drag_offset = Vector2.ZERO
 @export var max_speed: float = 500.0
 var ingredient_type = 0
 var smash_progress=0;
-
+var mouse_in = false
 
 @export var texture_0: Texture2D
 @export var texture_1: Texture2D
@@ -66,7 +66,20 @@ func update_texture():
 
 func _on_mouse_entered() -> void:
 	get_node("SmashBar").show()
+	GlobalGameManager.tmp_ingredient = ingredient_type
+	GlobalGameManager.tmp_durability = GlobalGameManager.base_len*(smash_progress+100)/100
+	GlobalGameManager.show_tmp(true)
+	mouse_in = true
 
 
 func _on_mouse_exited() -> void:
 	get_node("SmashBar").hide()
+	GlobalGameManager.tmp_ingredient = 0
+	GlobalGameManager.tmp_durability = 0
+	GlobalGameManager.show_tmp(false)
+	mouse_in = false
+
+func _process(delta: float) -> void:
+	if mouse_in:
+		GlobalGameManager.tmp_durability = GlobalGameManager.base_len*(smash_progress+100)/100
+		

@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwnjxwn1xmd1u"]
+[gd_scene load_steps=4 format=3 uid="uid://bwnjxwn1xmd1u"]
 
 [ext_resource type="Texture2D" uid="uid://r5ur0wthuhe1" path="res://art/potion.png" id="1_bcips"]
+[ext_resource type="Texture2D" uid="uid://nodgnsu6fqkf" path="res://art/potion_water.png" id="2_sdorb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_174ht"]
 radius = 25.019993
 
 [node name="Potion" type="Area2D" groups=["potion"]]
-position = Vector2(613, 264)
-metadata/_edit_group_ = true
+position = Vector2(613, 255)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_bcips")
+
+[node name="WaterBar" type="TextureProgressBar" parent="."]
+offset_left = -34.0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = 47.0
+scale = Vector2(0.92570657, 0.9121359)
+min_value = -10.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("2_sdorb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)

@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	get_new_potion()
 	process_drying()
 	get_node("Label").text=str(water)
+	get_node("WaterBar").value = water
 	
 	if GlobalGameManager.ismoving():
 		#print(GlobalGameManager.get_now_ingredient())

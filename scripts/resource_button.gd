@@ -10,4 +10,5 @@ func _on_button_down():
 		new_instance.global_position = get_global_mouse_position()
 		new_instance.set_ingredient_type(ingredient_type)
 		new_instance.update_texture()
+		new_instance._on_mouse_entered()
 	

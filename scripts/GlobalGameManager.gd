@@ -3,6 +3,8 @@ extends Node2D
 var potion_moving = false
 var ingredient_queue = Queue.new()
 var durability_queue = Queue.new()
+var tmp_ingredient = 0
+var tmp_durability = 0
 var now_step = 0
 var potion_watering = false
 var show_arrow = false
@@ -16,6 +18,8 @@ var potion_data = {}
 @export var base_len = 150
 
 signal queue_changed
+signal start_draw_tmp
+signal stop_draw_tmp
 
 func _ready():
 	ingredient_queue.clear()
@@ -23,6 +27,12 @@ func _ready():
 	potion_data = {}
 	potion_name = ""
 	new_level = 0
+
+func show_tmp(i:bool):
+	if i:
+		start_draw_tmp.emit()
+	else:
+		stop_draw_tmp.emit()
 
 func get_now_ingredient():
 	if ingredient_queue.is_empty():
