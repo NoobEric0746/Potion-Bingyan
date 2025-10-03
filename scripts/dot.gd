@@ -35,6 +35,7 @@ func _process(delta):
 		global_position += movement
 
 func process_vortex():
+	print("1")
 	var potion = get_parent().get_node("Potion")
 	var dis = potion.global_position - GlobalGameManager.vortex
 	var go = (dis.rotated(deg_to_rad(100))).normalized()

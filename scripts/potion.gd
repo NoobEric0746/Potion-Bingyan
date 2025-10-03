@@ -17,6 +17,9 @@ func _ready():
 	z_index = 100
 	GlobalGameManager.kill_items.connect(Callable(self,"_on_scene_switch"))
 	GlobalGameManager.to_craft.connect(Callable(self,"_on_scene_back"))
+	if GlobalGameManager.used:
+		GlobalGameManager.used=false
+		global_position = start_pos
 
 
 func _process(delta: float) -> void:

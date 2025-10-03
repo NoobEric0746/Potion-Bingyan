@@ -9,7 +9,7 @@ func _ready():
 	now=0
 
 func create_buyers():
-	for i in range(0,3):
+	for i in range(0,4):
 		buyers_need[i] = randi_range(1,3)
 		buyers_kindness[i] = randi_range(10,30)
 
@@ -23,9 +23,14 @@ func translate(i):
 			return "爆炸"
 
 func buyer_words():
-	return "我需要:\n" + translate(buyers_need[now]) + "\n药水"
+	if now<4:
+		return "我需要:\n" + translate(buyers_need[now]) + "\n药水"
+	else:
+		return "今日结束"
 
 func get_price():
+	if now>=4:
+		return -1
 	if translate(buyers_need[now]) in GlobalGameManager.potion_data:
 		var level = GlobalGameManager.potion_data[translate(buyers_need[now])]
 		return level * buyers_kindness[now]

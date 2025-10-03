@@ -6,7 +6,8 @@ func _on_spawn_button_pressed():
 	new_sprite_instance.global_position = get_global_mouse_position()
 	add_child(new_sprite_instance)
 func _process(delta):
-	pass
+	var label = get_node("Money")
+	label.text = str(GlobalGameManager.money)+"$"
 	#print(GlobalGameManager.get_now_ingredient())
 func _ready():
 	set_process(true)

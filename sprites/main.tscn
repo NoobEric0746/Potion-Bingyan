@@ -94,6 +94,15 @@ offset_top = 542.0
 offset_right = 794.0
 offset_bottom = 633.0
 
+[node name="Money" type="Label" parent="."]
+offset_left = 985.0
+offset_top = 11.0
+offset_right = 1038.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "123"
+
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]
 [connection signal="button_down" from="Water" to="Water" method="_on_button_down"]

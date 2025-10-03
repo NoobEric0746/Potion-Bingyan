@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5cvsmbxkbtd5"]
+[gd_scene load_steps=9 format=3 uid="uid://b5cvsmbxkbtd5"]
 
 [ext_resource type="Texture2D" uid="uid://ba5b5u5nrcj23" path="res://art/background.png" id="1_hph3p"]
 [ext_resource type="Script" uid="uid://cm2wmi62cq7lu" path="res://sprites/sell.gd" id="1_somti"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cqspsldftopcc" path="res://sprites/sell_2_craft.gd" id="4_ropkr"]
 [ext_resource type="Texture2D" uid="uid://cs0wis8e5psgi" path="res://art/sell_button.png" id="6_w52vs"]
 [ext_resource type="Texture2D" uid="uid://cyr5sesnrhubo" path="res://art/potion1.png" id="7_c0gl4"]
+[ext_resource type="Texture2D" uid="uid://cml0xtpbnjqa8" path="res://art/next_day_button.png" id="8_c0gl4"]
 
 [node name="Sell" type="Node2D"]
 script = ExtResource("1_somti")
@@ -60,13 +61,22 @@ position = Vector2(741, 268)
 texture = ExtResource("7_c0gl4")
 
 [node name="Info" type="Label" parent="."]
-offset_left = 931.0
-offset_top = 58.0
-offset_right = 1115.0
-offset_bottom = 381.0
+offset_left = 945.0
+offset_top = 56.0
+offset_right = 1100.0
+offset_bottom = 379.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
-text = "这是药水"
+text = "中毒2爆炸6药水"
+autowrap_mode = 3
+
+[node name="NextDay" type="TextureButton" parent="."]
+offset_left = 275.0
+offset_top = 254.0
+offset_right = 447.0
+offset_bottom = 333.0
+texture_normal = ExtResource("8_c0gl4")
 
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="NextDay" to="." method="_on_next_day_pressed"]

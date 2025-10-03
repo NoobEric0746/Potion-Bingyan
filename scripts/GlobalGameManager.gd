@@ -18,6 +18,8 @@ var storage_data = {1:5,2:5,3:5}
 var potion_pos = Vector2.ZERO
 var potion_water = 100
 var money = 0
+var used = false
+var plant_state = {1:true,2:true,3:true}
 
 var firing = false
 var vortex = Vector2.ZERO
