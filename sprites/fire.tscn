@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bva6m6skulph7"]
+[gd_scene load_steps=5 format=3 uid="uid://bva6m6skulph7"]
 
 [ext_resource type="Texture2D" uid="uid://bfd7e64gqjmkj" path="res://art/fire.png" id="1_s0lgs"]
 [ext_resource type="Script" uid="uid://cf2y5vat4shwf" path="res://fire.gd" id="2_1jeoy"]
+[ext_resource type="Texture2D" uid="uid://bem17067scjqa" path="res://particle/assets/effect_2.png" id="3_1jeoy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kws17"]
+particle_flag_disable_z = true
+spread = 10.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, -40, 0)
+color = Color(2.5027991e-06, 0.6364321, 0.92783093, 1)
 
 [node name="Fire" type="TextureButton"]
 offset_right = 40.0
@@ -13,6 +22,14 @@ script = ExtResource("2_1jeoy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(8, 55, 149, 59, 18, 9)
+
+[node name="WindParticle" type="GPUParticles2D" parent="."]
+position = Vector2(134, 54)
+emitting = false
+amount = 20
+texture = ExtResource("3_1jeoy")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_kws17")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

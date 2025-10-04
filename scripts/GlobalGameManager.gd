@@ -31,6 +31,7 @@ signal start_draw_tmp
 signal stop_draw_tmp
 signal kill_items
 signal to_craft
+signal add_effect_signal
 
 func _ready():
 	ingredient_queue.clear()
@@ -72,7 +73,7 @@ func add_effect():
 		potion_data[new_type]=new_level
 		potion_name += new_type
 		potion_name += str(new_level)
-		
+		add_effect_signal.emit()
 
 func set_now_ingredient(ingredient):
 	now_ingredient = ingredient

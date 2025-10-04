@@ -55,7 +55,7 @@ func draw_tmp_dots():
 		tmp_pos+=GlobalGameManager.get_direction_by_ingredient(GlobalGameManager.tmp_ingredient)
 		tmp_durability += 1
 		if tmp_durability%30==0:
-			#print(tmp_durability)
+			print(tmp_durability)
 			var dot_instance = dot.instantiate()
 			dot_instance.position = tmp_pos
 			dot_instance.add_to_group("tmp_dot")

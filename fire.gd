@@ -7,7 +7,11 @@ func _on_pressed() -> void:
 
 func _on_button_down() -> void:
 	GlobalGameManager.firing = true
+	var wind = get_node("WindParticle")
+	wind.emitting = true
 
 
 func _on_button_up() -> void:
 	GlobalGameManager.firing = false
+	var wind = get_node("WindParticle")
+	wind.emitting = false

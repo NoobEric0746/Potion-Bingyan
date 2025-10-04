@@ -1,13 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddqcswb0jiril"]
+[gd_scene load_steps=17 format=3 uid="uid://ddqcswb0jiril"]
 
 [ext_resource type="Script" uid="uid://besxlem4y7h1o" path="res://scripts/pot.gd" id="1_qj7gk"]
 [ext_resource type="Texture2D" uid="uid://c034tn7yht5ju" path="res://art/pot.png" id="1_s347r"]
+[ext_resource type="Texture2D" uid="uid://f2i7nankku3a" path="res://particle/assets/effect_5.png" id="3_3hkoy"]
+[ext_resource type="Texture2D" uid="uid://vlohs1jhq0kr" path="res://particle/assets/big_smoke_4.png" id="4_0xxma"]
+[ext_resource type="Texture2D" uid="uid://bspebc6wx3ev6" path="res://particle/assets/flame.png" id="5_mei5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj7gk"]
 radius = 71.063354
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hkoy"]
 size = Vector2(70, 15)
+
+[sub_resource type="Curve" id="Curve_0xxma"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.43684214, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.48638135), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mei5g"]
+curve = SubResource("Curve_0xxma")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mjxy2"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(30.635, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -98, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_mei5g")
+color = Color(0.9180649, 6.430268e-05, 0.6979999, 1)
+
+[sub_resource type="Curve" id="Curve_mei5g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mjxy2"]
+curve = SubResource("Curve_mei5g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5t0eh"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(26.05, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = -50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -100, 0)
+scale_curve = SubResource("CurveTexture_mjxy2")
+
+[sub_resource type="Curve" id="Curve_mjxy2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5t0eh"]
+curve = SubResource("Curve_mjxy2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lpmgf"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20.08, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, -200, 0)
+scale_curve = SubResource("CurveTexture_5t0eh")
 
 [node name="Pot" type="TextureButton"]
 texture_normal = ExtResource("1_s347r")
@@ -25,6 +80,31 @@ position = Vector2(79, 84)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -66.5)
 shape = SubResource("RectangleShape2D_3hkoy")
+
+[node name="BubbleParticle" type="GPUParticles2D" parent="."]
+position = Vector2(80, 6)
+emitting = false
+amount = 20
+texture = ExtResource("3_3hkoy")
+process_material = SubResource("ParticleProcessMaterial_mjxy2")
+
+[node name="AddStuffParticle" type="GPUParticles2D" parent="."]
+position = Vector2(79, 8)
+emitting = false
+amount = 20
+texture = ExtResource("4_0xxma")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5t0eh")
+
+[node name="FireParticle" type="GPUParticles2D" parent="."]
+position = Vector2(78, 161)
+emitting = false
+amount = 20
+texture = ExtResource("5_mei5g")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lpmgf")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
