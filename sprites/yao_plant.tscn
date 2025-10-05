@@ -1,21 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://6uygypgy6b12"]
+[gd_scene load_steps=5 format=3 uid="uid://6uygypgy6b12"]
 
 [ext_resource type="Script" uid="uid://dmc4pl7m4ikj4" path="res://yao_plant.gd" id="1_vsd0i"]
-[ext_resource type="Script" uid="uid://duit6vu0dmnus" path="res://sprites/add5label.gd" id="2_7kj10"]
+[ext_resource type="Texture2D" uid="uid://bx26hiw6gxc1y" path="res://art/t1_plant.png" id="2_ntqgm"]
+[ext_resource type="Texture2D" uid="uid://0b81hcfslqi7" path="res://art/plus5.png" id="3_su5qn"]
 
-[node name="yao_plant" type="TextureButton"]
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbk1l"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 41.53
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 300, 0)
+
+[node name="yao_plant" type="Node2D"]
 script = ExtResource("1_vsd0i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
+[node name="TextureButton" type="TextureButton" parent="."]
 offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "+5"
-script = ExtResource("2_7kj10")
+offset_bottom = 40.0
+texture_normal = ExtResource("2_ntqgm")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="Plus5Particle" type="GPUParticles2D" parent="."]
+position = Vector2(92, 50)
+emitting = false
+amount = 1
+texture = ExtResource("3_su5qn")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mbk1l")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

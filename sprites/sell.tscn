@@ -1,16 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5cvsmbxkbtd5"]
+[gd_scene load_steps=12 format=3 uid="uid://b5cvsmbxkbtd5"]
 
 [ext_resource type="Texture2D" uid="uid://ba5b5u5nrcj23" path="res://art/background.png" id="1_hph3p"]
 [ext_resource type="Script" uid="uid://cm2wmi62cq7lu" path="res://sprites/sell.gd" id="1_somti"]
 [ext_resource type="Texture2D" uid="uid://kmnb854oj23l" path="res://art/buyer.png" id="2_eu43m"]
+[ext_resource type="Texture2D" uid="uid://cen4vdj03dy1i" path="res://art/Villager.png" id="2_fgadp"]
 [ext_resource type="Texture2D" uid="uid://cy1bp8lwmdtha" path="res://art/left.png" id="3_somti"]
 [ext_resource type="Script" uid="uid://cqspsldftopcc" path="res://sprites/sell_2_craft.gd" id="4_ropkr"]
+[ext_resource type="Texture2D" uid="uid://bqu8yr0gulh2v" path="res://art/stop_buying_button.png" id="6_1adv0"]
 [ext_resource type="Texture2D" uid="uid://cs0wis8e5psgi" path="res://art/sell_button.png" id="6_w52vs"]
 [ext_resource type="Texture2D" uid="uid://cyr5sesnrhubo" path="res://art/potion1.png" id="7_c0gl4"]
 [ext_resource type="Texture2D" uid="uid://cml0xtpbnjqa8" path="res://art/next_day_button.png" id="8_c0gl4"]
+[ext_resource type="PackedScene" uid="uid://4gia8rnn0std" path="res://sprites/sell_tab.tscn" id="9_4gb74"]
 
 [node name="Sell" type="Node2D"]
 script = ExtResource("1_somti")
+tex_buyer = ExtResource("2_fgadp")
+tex_seller = ExtResource("2_eu43m")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1152.0
@@ -40,6 +45,13 @@ offset_bottom = 603.0
 texture_normal = ExtResource("3_somti")
 script = ExtResource("4_ropkr")
 
+[node name="StopBuyingButton" type="TextureButton" parent="."]
+offset_left = 602.0
+offset_top = 333.0
+offset_right = 885.0
+offset_bottom = 444.0
+texture_normal = ExtResource("6_1adv0")
+
 [node name="SellButton" type="TextureButton" parent="."]
 offset_left = 602.0
 offset_top = 333.0
@@ -67,7 +79,7 @@ offset_right = 1100.0
 offset_bottom = 379.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
-text = "中毒2爆炸6药水"
+text = "中毒2爆炸2药水"
 autowrap_mode = 3
 
 [node name="NextDay" type="TextureButton" parent="."]
@@ -77,6 +89,20 @@ offset_right = 447.0
 offset_bottom = 333.0
 texture_normal = ExtResource("8_c0gl4")
 
+[node name="Money" type="Label" parent="."]
+offset_left = 947.0
+offset_top = 15.0
+offset_right = 1029.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "114$"
+
+[node name="SellTab" parent="." instance=ExtResource("9_4gb74")]
+position = Vector2(656, 162)
+scale = Vector2(2.295, 2.295)
+
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
+[connection signal="pressed" from="StopBuyingButton" to="." method="_on_stop_buying_button_pressed"]
 [connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
 [connection signal="pressed" from="NextDay" to="." method="_on_next_day_pressed"]

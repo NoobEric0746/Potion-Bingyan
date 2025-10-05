@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://4gia8rnn0std"]
+
+[ext_resource type="Texture2D" uid="uid://cbbh5bskbwitt" path="res://art/sell_tab.png" id="1_m6m0a"]
+[ext_resource type="PackedScene" uid="uid://cot8yw8ru0imv" path="res://sprites/sell_item.tscn" id="2_laopy"]
+
+[node name="SellTab" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m6m0a")
+
+[node name="SellItem1" parent="." instance=ExtResource("2_laopy")]
+offset_left = -72.0
+offset_top = -35.0
+offset_right = -4.0
+offset_bottom = 105.0
+idx = 1
+
+[node name="SellItem2" parent="." instance=ExtResource("2_laopy")]
+offset_left = -14.0
+offset_top = -33.999996
+offset_right = 54.0
+offset_bottom = 106.0
+idx = 2
+
+[node name="SellItem3" parent="." instance=ExtResource("2_laopy")]
+offset_left = 41.0
+offset_top = -34.0
+offset_right = 109.0
+offset_bottom = 106.0
+idx = 3

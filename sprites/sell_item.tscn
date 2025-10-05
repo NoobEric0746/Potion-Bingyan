@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cot8yw8ru0imv"]
+
+[ext_resource type="Texture2D" uid="uid://cyo28yy84g3wk" path="res://art/t0_item.png" id="1_sk8xt"]
+[ext_resource type="Script" uid="uid://bihholtjhodml" path="res://sell_item.gd" id="2_qbydw"]
+[ext_resource type="Texture2D" uid="uid://5v837mwmlpq8" path="res://art/t1_item.png" id="3_inhwr"]
+[ext_resource type="Texture2D" uid="uid://bldkklco5l4x6" path="res://art/t2_item.png" id="4_a02hg"]
+[ext_resource type="Texture2D" uid="uid://c2mdr6k6djl7r" path="res://art/t3_item.png" id="5_ingto"]
+
+[node name="SellItem" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_sk8xt")
+script = ExtResource("2_qbydw")
+tex1 = ExtResource("3_inhwr")
+tex2 = ExtResource("4_a02hg")
+tex3 = ExtResource("5_ingto")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 137.5
+offset_right = 55.0
+offset_bottom = 165.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "10$"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

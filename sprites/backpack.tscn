@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://4w5wds7p3xpu"]
+[gd_scene load_steps=5 format=3 uid="uid://4w5wds7p3xpu"]
 
 [ext_resource type="Texture2D" uid="uid://ccjfab85mebd" path="res://art/backpack.png" id="1_l1ewb"]
 [ext_resource type="PackedScene" uid="uid://dv1y0kgmrqt2w" path="res://sprites/resource_button.tscn" id="2_28tt4"]
-[ext_resource type="Texture2D" uid="uid://d13hjbgbgfeb1" path="res://art/t1_button.png" id="3_uwy55"]
 [ext_resource type="Texture2D" uid="uid://b87m201jtrhg8" path="res://art/t2_button.png" id="4_g8j5r"]
 [ext_resource type="Texture2D" uid="uid://d2hrqkcpf4jte" path="res://art/t3_button.png" id="5_ntkk4"]
 
@@ -18,8 +17,9 @@ offset_left = 15.0
 offset_top = 25.0
 offset_right = 126.0
 offset_bottom = 87.0
-texture_normal = ExtResource("3_uwy55")
 ingredient_type = 1
+ingredient_name = "药材A"
+ingredient_info = "介绍"
 
 [node name="ResourceButton2" parent="." instance=ExtResource("2_28tt4")]
 offset_left = 13.0
@@ -28,6 +28,8 @@ offset_right = 124.0
 offset_bottom = 168.0
 texture_normal = ExtResource("4_g8j5r")
 ingredient_type = 2
+ingredient_name = "药材B"
+ingredient_info = "这也是介绍"
 
 [node name="ResourceButton3" parent="." instance=ExtResource("2_28tt4")]
 offset_left = 16.0
@@ -36,3 +38,5 @@ offset_right = 127.0
 offset_bottom = 245.0
 texture_normal = ExtResource("5_ntkk4")
 ingredient_type = 3
+ingredient_name = "药材C"
+ingredient_info = "114514"

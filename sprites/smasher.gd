@@ -19,3 +19,4 @@ func _process(delta: float) -> void:
 			if yao.is_in_group("yao_item"):
 				if yao.smash_progress<100:
 					yao.smash_progress+=1
+					yao.get_node("SmashParticle").emitting = true

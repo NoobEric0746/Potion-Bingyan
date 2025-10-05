@@ -2,6 +2,8 @@ extends TextureButton
 
 @export var sprite_to_spawn: PackedScene
 @export var ingredient_type: int
+@export var ingredient_name: String
+@export var ingredient_info: String
 
 func _on_button_down():
 	if sprite_to_spawn != null:
@@ -21,12 +23,14 @@ func _on_mouse_entered() -> void:
 	GlobalGameManager.tmp_ingredient = ingredient_type
 	GlobalGameManager.tmp_durability = GlobalGameManager.base_len
 	GlobalGameManager.show_tmp(true)
+	GlobalGameManager.ingredient_info = ingredient_name+":\n"+ingredient_info
 
 
 func _on_mouse_exited() -> void:
 	GlobalGameManager.tmp_ingredient = 0
 	GlobalGameManager.tmp_durability = 0
 	GlobalGameManager.show_tmp(false)
+	GlobalGameManager.ingredient_info = ""  
 
 func _process(delta: float) -> void:
 	get_node("Label").text = str(GlobalGameManager.storage_data[ingredient_type])

@@ -17,30 +17,6 @@ offset_right = 1152.0
 offset_bottom = 642.0
 texture = ExtResource("1_jwgjb")
 
-[node name="yao_plant" parent="." instance=ExtResource("2_ldoou")]
-offset_left = 51.0
-offset_top = 357.0
-offset_right = 244.0
-offset_bottom = 523.0
-texture_normal = ExtResource("3_g730w")
-ingredient_type = 1
-
-[node name="yao_plant2" parent="." instance=ExtResource("2_ldoou")]
-offset_left = 919.0
-offset_top = 268.0
-offset_right = 1064.0
-offset_bottom = 458.0
-texture_normal = ExtResource("4_rcath")
-ingredient_type = 2
-
-[node name="yao_plant3" parent="." instance=ExtResource("2_ldoou")]
-offset_left = 414.0
-offset_top = 260.0
-offset_right = 543.0
-offset_bottom = 507.0
-texture_normal = ExtResource("5_s12bg")
-ingredient_type = 3
-
 [node name="RightButton" type="TextureButton" parent="."]
 offset_left = 983.0
 offset_top = 484.0
@@ -48,5 +24,20 @@ offset_right = 1116.0
 offset_bottom = 607.0
 texture_normal = ExtResource("6_rcath")
 script = ExtResource("6_g730w")
+
+[node name="yao_plant" parent="." instance=ExtResource("2_ldoou")]
+position = Vector2(77, 357)
+ingredient_type = 1
+texture = ExtResource("3_g730w")
+
+[node name="yao_plant2" parent="." instance=ExtResource("2_ldoou")]
+position = Vector2(463, 296)
+ingredient_type = 2
+texture = ExtResource("4_rcath")
+
+[node name="yao_plant3" parent="." instance=ExtResource("2_ldoou")]
+position = Vector2(901, 210)
+ingredient_type = 3
+texture = ExtResource("5_s12bg")
 
 [connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]

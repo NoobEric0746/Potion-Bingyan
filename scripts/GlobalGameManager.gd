@@ -17,9 +17,10 @@ var potion_data = {}
 var storage_data = {1:5,2:5,3:5}
 var potion_pos = Vector2.ZERO
 var potion_water = 100
-var money = 0
+var money:int = 0
 var used = false
 var plant_state = {1:true,2:true,3:true}
+var ingredient_info = ""
 
 var firing = false
 var vortex = Vector2.ZERO
@@ -32,8 +33,10 @@ signal stop_draw_tmp
 signal kill_items
 signal to_craft
 signal add_effect_signal
+signal die_signal
 
 func _ready():
+	GlobalDataManager.load_game()
 	ingredient_queue.clear()
 	durability_queue.clear()
 	potion_data = {}
@@ -102,9 +105,14 @@ func add_ingredient(ingredient,smash_progress):
 	queue_changed.emit()
 
 func die():
-	_ready()
-	#get_node("/root/Craft").get_tree().reload_current_scene()
-	get_tree().reload_current_scene()
+	die_signal.emit()
+	ingredient_queue.clear()
+	durability_queue.clear()
+	potion_data = {}
+	potion_name = ""
+	new_level = 0
+	potion_pos = Vector2.ZERO
+	
 
 func clear_potion():
 	die()

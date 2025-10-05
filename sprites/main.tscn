@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=17 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cusqbfa5ajok0" path="res://sprites/water.gd" id="8_1t0ju"]
 [ext_resource type="PackedScene" uid="uid://d1phxuxacnvcm" path="res://sprites/smasher.tscn" id="9_1t0ju"]
 [ext_resource type="PackedScene" uid="uid://bva6m6skulph7" path="res://sprites/fire.tscn" id="11_44oxp"]
+[ext_resource type="Texture2D" uid="uid://c3gijsy4pt2rk" path="res://art/quit_button.png" id="16_b1wkd"]
 
 [node name="Craft" type="Node2D"]
 script = ExtResource("1_r3i6n")
@@ -103,9 +104,25 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
 text = "123"
 
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_right = 96.0
+offset_bottom = 98.0
+scale = Vector2(0.295, 0.295)
+texture_normal = ExtResource("16_b1wkd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 282.0
+offset_right = 185.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "114514"
+autowrap_mode = 3
+
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]
 [connection signal="button_down" from="Water" to="Water" method="_on_button_down"]
 [connection signal="button_up" from="Water" to="Water" method="_on_button_up"]
 [connection signal="mouse_entered" from="Water" to="Water" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Water" to="Water" method="_on_mouse_exited"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bieaumgqbd8md"]
+[gd_scene load_steps=13 format=3 uid="uid://bieaumgqbd8md"]
 
 [ext_resource type="Script" uid="uid://bqswm2vg1jahw" path="res://scripts/yao_item.gd" id="1_kbmj8"]
 [ext_resource type="Texture2D" uid="uid://cyo28yy84g3wk" path="res://art/t0_item.png" id="2_72gqe"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bldkklco5l4x6" path="res://art/t2_item.png" id="4_l6vlo"]
 [ext_resource type="Texture2D" uid="uid://c2mdr6k6djl7r" path="res://art/t3_item.png" id="5_4bb15"]
 [ext_resource type="Script" uid="uid://b01kxqoc36vbx" path="res://sprites/smash_bar.gd" id="6_72gqe"]
+[ext_resource type="Texture2D" uid="uid://dxawgw141xb6c" path="res://art/dust_particle.png" id="7_l6vlo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_44d0g"]
 bounce = 0.12
@@ -13,6 +14,28 @@ bounce = 0.12
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qre8k"]
 radius = 17.0
 height = 48.0
+
+[sub_resource type="Curve" id="Curve_4bb15"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.33073932), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_awxbi"]
+curve = SubResource("Curve_4bb15")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tav0t"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 11.67
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_awxbi")
+color = Color(0, 0, 0, 1)
 
 [node name="yao_item" type="RigidBody2D" groups=["yao_item"]]
 physics_material_override = SubResource("PhysicsMaterial_44d0g")
@@ -39,6 +62,13 @@ pivot_offset = Vector2(16, 53)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "test"
 script = ExtResource("6_72gqe")
+
+[node name="SmashParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("7_l6vlo")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_tav0t")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

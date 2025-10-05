@@ -1,18 +1,23 @@
-extends TextureButton
+extends Node2D
 
 @export var ingredient_type:int
+@export var texture:Texture2D
 var ok = true
 
-func _on_pressed() -> void:
-	if ok:
-		GlobalGameManager.storage_data[ingredient_type] += 5
-		GlobalGameManager.plant_state[ingredient_type] = false
-		get_node("Label").appear()
-		await get_tree().create_timer(0.2).timeout
-		hide()
 
 func _ready():
+	var tex = get_node("TextureButton")
+	tex.texture_normal = texture
 	if(GlobalGameManager.plant_state[ingredient_type]):
-		show()
+		tex.show()
 	else:
-		hide()
+		tex.hide()
+
+
+func _on_texture_button_pressed() -> void:
+	var tex = get_node("TextureButton")
+	GlobalGameManager.storage_data[ingredient_type] += 5
+	GlobalGameManager.plant_state[ingredient_type] = false
+	var particle = get_node("Plus5Particle")
+	particle.emitting = true
+	tex.hide()

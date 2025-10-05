@@ -92,3 +92,5 @@ func _process(delta: float) -> void:
 	if global_position.x > right_boundary+10:
 		GlobalGameManager.storage_data[ingredient_type] += 1
 		queue_free()
+	if !GlobalGameManager.smashing or smash_progress==100:
+		get_node("SmashParticle").emitting = false

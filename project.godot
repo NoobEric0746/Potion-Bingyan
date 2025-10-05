@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="药剂工艺"
-run/main_scene="uid://d137bko386a10"
+run/main_scene="uid://b5cvsmbxkbtd5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalDataManager="*res://global_data_manager.gd"
+GlobalSellManager="*res://global_sell_manager.gd"
 GlobalGameManager="*res://scripts/GlobalGameManager.gd"
 GlobalQueue="*res://scripts/queue.gd"
-GlobalSellManager="*res://global_sell_manager.gd"
 
 [dotnet]
 
@@ -29,4 +30,22 @@ project/assembly_name="药剂工艺"
 
 animation_library={
 &"nodes/root_script": null
+}
+
+[input]
+
+drag={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(57, 4),"global_position":Vector2(64, 41),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+zoom_in={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(246, 16),"global_position":Vector2(253, 53),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+zoom_out={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(229, 11),"global_position":Vector2(236, 48),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }

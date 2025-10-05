@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvmmqbjf34oh3"]
+[gd_scene load_steps=13 format=3 uid="uid://cvmmqbjf34oh3"]
 
 [ext_resource type="Texture2D" uid="uid://o430qjgc2qlr" path="res://art/map.png" id="1_53hhi"]
 [ext_resource type="Script" uid="uid://dvk1x0jhfgqtm" path="res://sprites/potion_map.gd" id="1_j4lu0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bcnsr0loarxgm" path="res://sprites/vortex.tscn" id="7_ykoox"]
 [ext_resource type="Texture2D" uid="uid://0bydmd535nd2" path="res://art/center.png" id="8_l6pwf"]
 [ext_resource type="PackedScene" uid="uid://cbv6aklwgj262" path="res://sprites/bone_area.tscn" id="9_l6dbk"]
+[ext_resource type="Script" uid="uid://condknht4f406" path="res://sprites/camera_2d.gd" id="10_mvugv"]
 
 [node name="PotionMap" type="Node2D"]
 script = ExtResource("1_j4lu0")
@@ -54,6 +55,7 @@ dis2 = 15
 dis3 = 5
 
 [node name="Camera2D" type="Camera2D" parent="Potion"]
+script = ExtResource("10_mvugv")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(99, -1)
