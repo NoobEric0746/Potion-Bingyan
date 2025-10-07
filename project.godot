@@ -21,6 +21,7 @@ GlobalDataManager="*res://global_data_manager.gd"
 GlobalSellManager="*res://global_sell_manager.gd"
 GlobalGameManager="*res://scripts/GlobalGameManager.gd"
 GlobalQueue="*res://scripts/queue.gd"
+GlobalPotion="*res://global_potion.gd"
 
 [dotnet]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cvmmqbjf34oh3"]
 
 [ext_resource type="Texture2D" uid="uid://o430qjgc2qlr" path="res://art/map.png" id="1_53hhi"]
-[ext_resource type="Script" uid="uid://dvk1x0jhfgqtm" path="res://sprites/potion_map.gd" id="1_j4lu0"]
+[ext_resource type="Script" uid="uid://dvk1x0jhfgqtm" path="res://scripts/potion_map.gd" id="1_mvugv"]
 [ext_resource type="PackedScene" uid="uid://c4phys4gykhc4" path="res://sprites/dot.tscn" id="2_8ltbf"]
 [ext_resource type="PackedScene" uid="uid://bwnjxwn1xmd1u" path="res://sprites/potion.tscn" id="2_j4lu0"]
 [ext_resource type="Script" uid="uid://dp28pn5gkb3sv" path="res://scripts/potion.gd" id="3_8ltbf"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://condknht4f406" path="res://sprites/camera_2d.gd" id="10_mvugv"]
 
 [node name="PotionMap" type="Node2D"]
-script = ExtResource("1_j4lu0")
+script = ExtResource("1_mvugv")
 dot = ExtResource("2_8ltbf")
 
 [node name="TextureRect" type="TextureRect" parent="."]

@@ -7,10 +7,8 @@ func _on_spawn_button_pressed():
 	add_child(new_sprite_instance)
 func _process(delta):
 	var label = get_node("Money")
-	var info = get_node("Label")
 	
 	label.text = str(GlobalGameManager.money)+"$"
-	info.text = GlobalGameManager.ingredient_info
 	#print(GlobalGameManager.get_now_ingredient())
 func _ready():
 	set_process(true)

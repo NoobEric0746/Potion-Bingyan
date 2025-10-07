@@ -9,6 +9,8 @@ func _ready():
 	GlobalGameManager.queue_changed.connect(_on_queue_changed)
 	GlobalGameManager.start_draw_tmp.connect(_on_start_draw_tmp)
 	GlobalGameManager.stop_draw_tmp.connect(_on_stop_draw_tmp)
+	GlobalGameManager.die_signal.connect(Callable(self,"_on_death"))
+	GlobalGameManager.upload_potion.connect(Callable(self,"_on_upload"))
 
 
 func _on_queue_changed():
@@ -25,12 +27,13 @@ func _on_stop_draw_tmp():
 	drawing=false
 
 func _process(delta: float) -> void:
+	
 	if drawing:
 		draw_tmp_dots()
 	
 	if GlobalGameManager.potion_watering:
 		var potion = get_node("Potion")
-		var direction = potion.start_pos - potion.global_position
+		var direction = GlobalGameManager.potion_o - potion.global_position
 		if direction.length() < 2.0:
 			return
 		var movement = direction.normalized()
@@ -85,3 +88,13 @@ func draw_dots():
 	dot_instance.set_step(GlobalGameManager.now_step+i)
 	dot_instance.set_type(1)
 	call_deferred("add_child", dot_instance)
+	
+func _on_death():
+	clear_dots()
+	#await get_tree().process_frame
+	#pos = GlobalGameManager.potion_o
+	#pos = Vector2.ZERO
+
+func _on_upload():
+	await get_tree().process_frame
+	pos = GlobalGameManager.potion_pos1

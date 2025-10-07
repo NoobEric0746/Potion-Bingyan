@@ -59,7 +59,7 @@ func process_price():
 		info.show()
 		buyer.texture = tex_buyer
 		if GlobalSellManager.get_price()==0:
-			label.text = "这不对吧"
+			label.text = "这不是我要的"
 		else:
 			label.text = str(GlobalSellManager.get_price())+"$"
 
@@ -77,7 +77,7 @@ func _on_sell_button_pressed() -> void:
 func _on_next_day_pressed() -> void:
 	GlobalSellManager._ready()
 	GlobalGameManager.plant_state = {1:true,2:true,3:true}
-
+	GlobalDataManager.save_game()
 
 func _on_stop_buying_button_pressed() -> void:
 	GlobalSellManager.now+=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d137bko386a10"]
+[gd_scene load_steps=18 format=3 uid="uid://d137bko386a10"]
 
 [ext_resource type="PackedScene" uid="uid://df6sqna0kjimq" path="res://sprites/background.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bj4nlqlgny11v" path="res://scripts/main.gd" id="1_r3i6n"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d1phxuxacnvcm" path="res://sprites/smasher.tscn" id="9_1t0ju"]
 [ext_resource type="PackedScene" uid="uid://bva6m6skulph7" path="res://sprites/fire.tscn" id="11_44oxp"]
 [ext_resource type="Texture2D" uid="uid://c3gijsy4pt2rk" path="res://art/quit_button.png" id="16_b1wkd"]
+[ext_resource type="PackedScene" uid="uid://bj6okn7m0xg5f" path="res://sprites/saved_potion.tscn" id="17_8a4rr"]
 
 [node name="Craft" type="Node2D"]
 script = ExtResource("1_r3i6n")
@@ -110,14 +111,8 @@ offset_bottom = 98.0
 scale = Vector2(0.295, 0.295)
 texture_normal = ExtResource("16_b1wkd")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 62.0
-offset_top = 282.0
-offset_right = 185.0
-offset_bottom = 374.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "114514"
-autowrap_mode = 3
+[node name="SavedPotion" parent="." instance=ExtResource("17_8a4rr")]
+position = Vector2(688, 45)
 
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]

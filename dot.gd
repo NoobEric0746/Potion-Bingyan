@@ -25,7 +25,7 @@ func _process(delta):
 		queue_free()
 	if GlobalGameManager.potion_watering:
 		var potion = get_parent().get_node("Potion")
-		var direction = potion.start_pos - potion.global_position
+		var direction = GlobalGameManager.potion_o - potion.global_position
 		if direction.length() < 2.0:
 			return
 		var movement = direction.normalized()

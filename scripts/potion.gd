@@ -1,26 +1,26 @@
 extends Area2D
 
-var start_pos = Vector2.ZERO
+#var start_pos = Vector2.ZERO
 var water = 100
 @export var dis1:int
 @export var dis2:int
 @export var dis3:int
 
 func _ready():
-	set_process(true)
-	start_pos = global_position
-	if GlobalGameManager.potion_pos == Vector2.ZERO:
+	if GlobalGameManager.potion_o == Vector2.ZERO:
+		GlobalGameManager.potion_o =global_position
 		GlobalGameManager.potion_pos =global_position
-	else:
-		global_position = GlobalGameManager.potion_pos
-		water = GlobalGameManager.potion_water
+	global_position = GlobalGameManager.potion_pos
+	water = GlobalGameManager.potion_water
 	z_index = 100
+	GlobalGameManager.potion_pos1 = position
 	GlobalGameManager.kill_items.connect(Callable(self,"_on_scene_switch"))
 	GlobalGameManager.to_craft.connect(Callable(self,"_on_scene_back"))
+	GlobalGameManager.upload_potion.connect(Callable(self,"_on_upload"))
 	GlobalGameManager.die_signal.connect(Callable(self,"_on_death"))
 	if GlobalGameManager.used:
 		GlobalGameManager.used=false
-		global_position = start_pos
+		global_position = GlobalGameManager.potion_o
 
 
 func _process(delta: float) -> void:
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		
 		
 	if GlobalGameManager.potion_watering:
-		var direction = start_pos - global_position
+		var direction = GlobalGameManager.potion_o - global_position
 		if direction.length() < 2.0:
 			return
 		var movement = direction.normalized()
@@ -98,3 +98,9 @@ func _on_scene_switch():
 func _on_scene_back():
 	global_position = GlobalGameManager.potion_pos
 	print("back")
+func _on_death():
+	_ready()
+func _on_upload():
+	GlobalGameManager.potion_pos=global_position
+	GlobalGameManager.potion_pos1=position
+	GlobalGameManager.potion_water=water

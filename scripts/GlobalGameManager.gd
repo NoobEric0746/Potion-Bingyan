@@ -14,13 +14,18 @@ var new_type = "None"
 var new_level = 0
 var potion_name = ""
 var potion_data = {}
+var used_ingredient = {1:0,2:0,3:0}
 var storage_data = {1:5,2:5,3:5}
+var saved_potion = {1:null,2:null,3:null}
 var potion_pos = Vector2.ZERO
 var potion_water = 100
 var money:int = 0
 var used = false
 var plant_state = {1:true,2:true,3:true}
 var ingredient_info = ""
+var saved_potion_info = 0
+var potion_o = Vector2.ZERO
+var potion_pos1 = Vector2.ZERO
 
 var firing = false
 var vortex = Vector2.ZERO
@@ -34,6 +39,7 @@ signal kill_items
 signal to_craft
 signal add_effect_signal
 signal die_signal
+signal upload_potion
 
 func _ready():
 	GlobalDataManager.load_game()
@@ -103,16 +109,27 @@ func add_ingredient(ingredient,smash_progress):
 	ingredient_queue.enqueue(ingredient)
 	durability_queue.enqueue(base_len*(smash_progress+100)/100)
 	queue_changed.emit()
+	used_ingredient[ingredient]+=1
 
 func die():
-	die_signal.emit()
 	ingredient_queue.clear()
 	durability_queue.clear()
 	potion_data = {}
 	potion_name = ""
 	new_level = 0
-	potion_pos = Vector2.ZERO
+	potion_pos = potion_o
+	used_ingredient = {1:0,2:0,3:0}
+	potion_water = 100
+	die_signal.emit()
 	
-
+func save_potion(idx):
+	
+	upload_potion.emit()
+	var p = {"name":potion_name,"effect":potion_data.duplicate(true),"ingredient":used_ingredient.duplicate(true),"pos":potion_pos,"water":potion_water}
+	saved_potion[3] = saved_potion[2]
+	saved_potion[2] = saved_potion[1]
+	saved_potion[1] = p
 func clear_potion():
 	die()
+func reload():
+	die_signal.emit()

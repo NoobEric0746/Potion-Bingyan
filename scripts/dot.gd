@@ -28,14 +28,14 @@ func _process(delta):
 		queue_free()
 	if GlobalGameManager.potion_watering:
 		var potion = get_parent().get_node("Potion")
-		var direction = potion.start_pos - potion.global_position
+		var direction = GlobalGameManager.potion_o - potion.global_position
 		if direction.length() < 2.0:
 			return
 		var movement = direction.normalized()
 		global_position += movement
 
 func process_vortex():
-	print("1")
+	print("vortex")
 	var potion = get_parent().get_node("Potion")
 	var dis = potion.global_position - GlobalGameManager.vortex
 	var go = (dis.rotated(deg_to_rad(100))).normalized()

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj6okn7m0xg5f"]
+
+[ext_resource type="Script" uid="uid://dgdyrirqgivoy" path="res://saved_potion.gd" id="1_nrpss"]
+[ext_resource type="Texture2D" uid="uid://cbbh5bskbwitt" path="res://art/sell_tab.png" id="2_bit72"]
+[ext_resource type="PackedScene" uid="uid://ceup3skshi2qq" path="res://sprites/SavedPotionButton.tscn" id="3_v7d21"]
+
+[node name="SavedPotion" type="Node2D"]
+script = ExtResource("1_nrpss")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bit72")
+
+[node name="TextureButton" parent="." instance=ExtResource("3_v7d21")]
+offset_left = 17.000002
+offset_top = 22.000002
+offset_right = 135.0
+offset_bottom = 158.0
+scale = Vector2(0.405, 0.405)
+idx = 1
+
+[node name="TextureButton2" parent="." instance=ExtResource("3_v7d21")]
+offset_left = 78.00001
+offset_top = 22.0
+offset_right = 196.0
+offset_bottom = 158.0
+scale = Vector2(0.405, 0.405)
+idx = 2
+
+[node name="TextureButton3" parent="." instance=ExtResource("3_v7d21")]
+offset_left = 137.0
+offset_top = 22.0
+offset_right = 255.0
+offset_bottom = 158.0
+scale = Vector2(0.405, 0.405)
+idx = 3

@@ -7,6 +7,6 @@ func _process(delta: float) -> void:
 		hide()
 	var potion = get_parent().get_node("Potion")
 	position = potion.position
-	var direction = potion.start_pos - potion.global_position
+	var direction = GlobalGameManager.potion_o - potion.global_position
 	var angle_rad = direction.angle()
 	rotation = angle_rad
